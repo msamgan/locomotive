@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Locomotive, local setup to run microservices.
+
+BASE_DIRECTORY="$HOME/.locomo"
+
+. "$BASE_DIRECTORY"/commands/"$1" "$2"
+
+_invoke "$2" "$3"
