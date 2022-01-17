@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rm -rf /usr/bin/locomo
+rm -rf usr/share/locomo

@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Holds Helper functions
+
+_log() {
+    echo "$1"
+}
+
+_yellowLog() {
+    echo "\e[1;33m$1\e[0m"
+}
+
+_greenLog() {
+    echo "\e[1;32m$1\e[0m"
+}
+
+_blueLog() {
+    echo "\e[1;34m$1\e[0m"
+}
+
+_redLog() {
+    echo "\e[1;31m$1\e[0m"
+}
