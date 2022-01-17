@@ -8,5 +8,4 @@ mv ../config/ usr/share/locomo
 mv ../locomo usr/bin
 
 chmod 755 /usr/bin/locomo
-chmod 755 -R usr/share/locomo/commands
-chmod 755 -R usr/share/locomo/config
+chmod 755 -R usr/share/locomo

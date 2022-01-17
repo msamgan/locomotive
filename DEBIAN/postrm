@@ -1,5 +1,4 @@
 #!/bin/sh
 
 rm -rf /usr/bin/locomo
-rm -rf usr/share/locomo/commands
-rm -rf usr/share/locomo/config
+rm -rf usr/share/locomo

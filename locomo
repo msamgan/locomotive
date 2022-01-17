@@ -2,7 +2,7 @@
 
 # Locomotive, local setup to run microservices.
 
-BASE_DIRECTORY="usr/share/locomo"
+BASE_DIRECTORY="/usr/share/locomo"
 HOME_BASE_DIRECTORY="$HOME/.locomo"
 
 . "$BASE_DIRECTORY"/commands/"$1" "$2"
