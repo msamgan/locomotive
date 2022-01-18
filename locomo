@@ -2,6 +2,12 @@
 
 # Locomotive, local setup to run microservices.
 
+if [ -z $1 ]; then
+    echo "\e[1;34mv1.0.0\e[0m"
+    echo
+    set -- "list"
+fi
+
 BASE_DIRECTORY="/usr/share/locomo"
 HOME_BASE_DIRECTORY="$HOME/.locomo"
 

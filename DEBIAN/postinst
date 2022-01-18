@@ -1,0 +1,11 @@
+#!/bin/sh
+
+#Post install script locomotive.
+
+mkdir -p /usr/share/locomo
+mv ../commands/ /usr/share/locomo
+mv ../config/ /usr/share/locomo
+mv ../locomo /usr/bin
+
+chmod 755 /usr/bin/locomo
+chmod 755 -R /usr/share/locomo

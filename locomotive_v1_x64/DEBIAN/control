@@ -1,8 +1,0 @@
-Package: locomotive
-Version: 1.0
-Architecture: all
-Essential: no
-Priority: optional
-Depends: 
-Maintainer: msamgan
-Description: handles local servers for microservices

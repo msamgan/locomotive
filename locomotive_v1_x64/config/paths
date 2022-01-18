@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# Holds Constant paths
-
-COMMAND_PATH="$BASE_DIRECTORY/commands"
-SERVICE_PATH="$HOME_BASE_DIRECTORY/services"
