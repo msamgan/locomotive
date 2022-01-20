@@ -3,7 +3,7 @@
 # Locomotive, local setup to run microservices.
 
 if [ -z $1 ]; then
-    echo "\e[1;34mv1.0.0\e[0m"
+    echo "\e[1;34mv1.1.0\e[0m"
     echo
     set -- "list"
 fi
