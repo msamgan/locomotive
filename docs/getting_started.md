@@ -2,12 +2,12 @@
 
 ## Download
 
-To use locomotive, please Download the [latest build (.deb X64) by clicking here.](https://www.dropbox.com/s/d3x24m70fognml5/locomotive_v1.1.0_x64.deb?dl=0)
+To use locomotive, please Download the [latest build (.deb X64) by clicking here.](https://github.com/msamgan/locomotive/releases/tag/v1.1.0)
 
 ## Installation
 
 ```shell
-sudo dpkg -i <locomotive_version_arc.deb>
+sudo dpkg -i locomotive_v1.1.0_x64.deb
 ```
 
 That's it, you are good to go.
