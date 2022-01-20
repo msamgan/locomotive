@@ -1,0 +1,7 @@
+site_name: Locomotive (lmt)
+theme:
+  name: material
+nav:
+    - Home: index.md
+    - Getting Started: getting_started.md
+    - Commands: commands.md
