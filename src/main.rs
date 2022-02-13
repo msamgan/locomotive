@@ -1,6 +1,12 @@
 use seahorse::{error::FlagError, App, Command, Context, Flag, FlagType};
 use std::env;
 
+#[derive(Debug)]
+struct ProjectStruct {
+    name: String,
+    description: String,
+}
+
 fn main() {
     let args: Vec<String> = env::args().collect();
     let app = App::new(env!("CARGO_PKG_NAME"))
@@ -19,6 +25,9 @@ fn default_action(c: &Context) {
 }
 
 fn add_command() -> Command {
+    let description: &str =
+        "flag(ex. lmt add --type=project|service --name=name --description=description)";
+
     Command::new("add")
         .description("add project or service to the system")
         .alias("a")
@@ -26,13 +35,18 @@ fn add_command() -> Command {
         .action(add_action)
         .flag(
             Flag::new("type", FlagType::String)
-                .description("type flag(ex. lmt add --type=project|service --name=name)")
+                .description("type ".to_owned() + description)
                 .alias("t"),
         )
         .flag(
             Flag::new("name", FlagType::String)
-                .description("type flag(ex. lmt add --type=project|service --name=name)")
+                .description("name".to_owned() + description)
                 .alias("n"),
+        )
+        .flag(
+            Flag::new("description", FlagType::String)
+                .description("description ".to_owned() + description)
+                .alias("d"),
         )
 }
 
@@ -41,8 +55,12 @@ fn add_action(c: &Context) {
         Ok(t) => {
             match &*t {
                 "project" => {
-                    let project_name: String = c.string_flag("name").unwrap();
-                    println!("Hello adding project {}", project_name)
+                    let project: ProjectStruct = ProjectStruct {
+                        name: c.string_flag("name").unwrap(),
+                        description: c.string_flag("description").unwrap(),
+                    };
+
+                    print!("{:?}", project);
                 }
                 "service" => println!("Hello adding service, {:?}", c.string_flag("name")),
                 _ => panic!("undefined territory..."),
