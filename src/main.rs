@@ -1,7 +1,8 @@
 use seahorse::{error::FlagError, App, Command, Context, Flag, FlagType};
 use std::env;
 
-#[derive(Debug)]
+#[derive(Debug, Hash)]
+
 struct ProjectStruct {
     name: String,
     description: String,
@@ -25,27 +26,26 @@ fn default_action(c: &Context) {
 }
 
 fn add_command() -> Command {
-    let description: &str =
-        "flag(ex. lmt add --type=project|service --name=name --description=description)";
-
     Command::new("add")
         .description("add project or service to the system")
         .alias("a")
-        .usage("lmt add [args]")
+        .usage("lmt add --type=<type> --name=<name> --description=<description>")
         .action(add_action)
         .flag(
             Flag::new("type", FlagType::String)
-                .description("type ".to_owned() + description)
+                .description("type ex. --type=project|service || -t=project|service")
                 .alias("t"),
         )
         .flag(
             Flag::new("name", FlagType::String)
-                .description("name".to_owned() + description)
+                .description("name ex. --name=project_name || -n=project_name")
                 .alias("n"),
         )
         .flag(
             Flag::new("description", FlagType::String)
-                .description("description ".to_owned() + description)
+                .description(
+                    "description ex. --description=project_description || -d=project_description",
+                )
                 .alias("d"),
         )
 }
@@ -60,7 +60,8 @@ fn add_action(c: &Context) {
                         description: c.string_flag("description").unwrap(),
                     };
 
-                    print!("{:?}", project);
+                    print!("{:?}", project.name);
+                    print!("{:?}", project.description);
                 }
                 "service" => println!("Hello adding service, {:?}", c.string_flag("name")),
                 _ => panic!("undefined territory..."),
