@@ -26,8 +26,13 @@ fn add_command() -> Command {
         .action(add_action)
         .flag(
             Flag::new("type", FlagType::String)
-                .description("type flag(ex. lmt add --type=project|service)")
+                .description("type flag(ex. lmt add --type=project|service --name=name)")
                 .alias("t"),
+        )
+        .flag(
+            Flag::new("name", FlagType::String)
+                .description("type flag(ex. lmt add --type=project|service --name=name)")
+                .alias("n"),
         )
 }
 
@@ -35,8 +40,11 @@ fn add_action(c: &Context) {
     match c.string_flag("type") {
         Ok(t) => {
             match &*t {
-                "project" => println!("add project"),
-                "service" => println!("add service"),
+                "project" => {
+                    let project_name: String = c.string_flag("name").unwrap();
+                    println!("Hello adding project {}", project_name)
+                }
+                "service" => println!("Hello adding service, {:?}", c.string_flag("name")),
                 _ => panic!("undefined territory..."),
             };
         }
